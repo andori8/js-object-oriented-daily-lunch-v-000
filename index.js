@@ -28,7 +28,7 @@ class Customer {
   totalSpent() {
     return this.meals().reduce(function(agg,meal) {
       return agg.price + meal.price
-    })
+    },0)
   }
 }
 
@@ -120,8 +120,21 @@ class Employer {
       return delivery.meal()
     })
 
-    
     let uniqueMeals = [...new Set(employerMeals)]
     return uniqueMeals
+  }
+
+  mealTotals() {
+    let employerMeals = this.deliveries().map(delivery => {
+      return delivery.meal()
+    })
+
+    let meals = {}
+    employerMeals.forEach(meal => {
+      if (meals[meal.id]) {
+      meals[meal.id] += 1 } else {
+        meals[meal.id] = 1
+      }
+    })
   }
 }
