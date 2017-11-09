@@ -116,10 +116,11 @@ class Employer {
   }
 
   meals() {
-    let employerMeals = this.employees().map(employee => {
-      return employee.meals()
+    let employerMeals = this.deliveries().map(delivery => {
+      return delivery.meal()
     })
 
+    
     let uniqueMeals = [...new Set(employerMeals)]
     return uniqueMeals
   }
