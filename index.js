@@ -106,8 +106,12 @@ class Employer {
   }
 
   deliveries() {
-    return this.employees().map(employee => {
+    let array = []
+    let employerDeliveries =  this.employees().map(employee => {
       return employee.deliveries()
     })
+
+    let combinedArray = array.concat.apply(array,employerDeliveries)
+    return combinedArray
   }
 }
