@@ -136,5 +136,6 @@ class Employer {
         meals[meal.id] = 1
       }
     })
+    return meals
   }
 }
