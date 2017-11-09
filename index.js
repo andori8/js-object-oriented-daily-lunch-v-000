@@ -114,4 +114,13 @@ class Employer {
     let combinedArray = array.concat.apply(array,employerDeliveries)
     return combinedArray
   }
+
+  meals() {
+    let employerMeals = this.employees().map(employee => {
+      return employee.meals()
+    })
+
+    let uniqueMeals = [...new Set(employerMeals)]
+    return uniqueMeals
+  }
 }
